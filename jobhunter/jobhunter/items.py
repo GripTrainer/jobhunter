@@ -1,6 +1,7 @@
 import scrapy
 
-class SeekItem(scrapy.Item):
+
+class JobAd(scrapy.Item):
     id = scrapy.Field()
     jobtitle = scrapy.Field()
     classification = scrapy.Field()
