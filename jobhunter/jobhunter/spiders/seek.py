@@ -2,7 +2,7 @@ import scrapy
 import re
 
 from jobhunter.itemloaders import SeekLoader
-from jobhunter.items import SeekItem
+from jobhunter.items import JobAd
 
 BASE_URL = 'https://www.seek.co.nz'
 
@@ -21,12 +21,12 @@ class SeekSpider(scrapy.Spider):
         
 
     def parse_job(self, response):
-        sl = SeekLoader(item=SeekItem(), response=response)
+        sl = SeekLoader(item=JobAd(), response=response)
         sl.add_value('id', response.text, re=r'"id":(\d+)')
         sl.add_value('classification', response.text, re=r'"jobSubClassification":"([^"]+)')
         sl.add_value('listingdate', response.text, re=r'"listingDate":"([^"]+)"')
         sl.add_value('expirydate', response.text, re=r'"expiryDate":"([^"]+)"')
         sl.add_value('company', response.text, re=r'"advertiserName":"([^"]+)"')
         sl.add_css('jobtitle', 'h1.jobtitle::text')
-        sl.add_css('text', 'p::text')
+        sl.add_css('text', '.templatetext ::text')
         yield sl.load_item()
