@@ -3,6 +3,8 @@ BOT_NAME = 'jobhunter'
 SPIDER_MODULES = ['jobhunter.spiders']
 NEWSPIDER_MODULE = 'jobhunter.spiders'
 
+USER_AGENT = 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.64 Safari/537.31'
+
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 

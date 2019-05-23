@@ -9,3 +9,7 @@ class SeekLoader(ItemLoader):
     text_out = Join()
     default_input_processor = MapCompose(str.strip)
     default_output_processor = TakeFirst()
+
+class TrademeLoader(ItemLoader):
+    text_out = Join()
+    default_output_processor = TakeFirst()
