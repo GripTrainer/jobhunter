@@ -29,4 +29,5 @@ class SeekSpider(scrapy.Spider):
         sl.add_value('company', response.text, re=r'"advertiserName":"([^"]+)"')
         sl.add_css('jobtitle', 'h1.jobtitle::text')
         sl.add_css('text', '.templatetext ::text')
+        sl.add_value('url', response.url)
         yield sl.load_item()

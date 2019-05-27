@@ -19,5 +19,6 @@ class TrademeSpider(SitemapSpider):
         jl.add_css('expirydate', '#JSocialTools_JExpireTimeLabel::text')
         jl.add_value('company', response.text, re='"jobsCompany": "([^"]+)"')
         jl.add_css('text', '#j-description-contents *::text')
+        jl.add_value('url', response.url)
         yield jl.load_item()
 

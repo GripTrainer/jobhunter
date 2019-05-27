@@ -19,6 +19,7 @@ class IndeedSpider(scrapy.Spider):
         jl.add_value('jobtitle', response.text, re=r'"jobTitle":"([^"]+)"')
         jl.add_css('company', '.icl-u-xs-mr--xs::text')
         jl.add_css('text', '.jobsearch-jobDescriptionText *::text')
+        jl.add_value('url', response.url)
         yield jl.load_item()
         
     
