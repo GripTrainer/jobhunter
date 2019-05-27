@@ -9,3 +9,4 @@ class JobAd(scrapy.Item):
     expirydate = scrapy.Field()
     company = scrapy.Field()
     text = scrapy.Field()
+    url = scrapy.Field()
