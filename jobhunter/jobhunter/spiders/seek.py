@@ -9,7 +9,7 @@ BASE_URL = 'https://www.seek.co.nz'
 class SeekSpider(scrapy.Spider):
     name = 'seek'
     start_urls = [
-        f'{BASE_URL}/jobs-in-information-communication-technology/in-All-Wellington?sortmode=ListedDate'
+        f'{BASE_URL}/jobs-in-information-communication-technology/in-All-Wellington?daterange=1&sortmode=ListedDate'
     ]
 
     def parse(self, response):
