@@ -22,12 +22,14 @@ class JobAlertPipeline(object):
         return item
 
     def close_spider(self, spider):
-        mailer = yagmail.SMTP(self.email, self.email_pass)
-        mailer.send(
-            to=self.email,
-            subject=f'Daily Job Hunt - {spider.name}', 
-            contents=[field for job in self.jobs for field in (job.get('jobtitle'), job.get('url'))]
-        )
+        if self.jobs:
+            mailer = yagmail.SMTP(self.email, self.email_pass)
+            mailer.send(
+                to=self.email,
+                subject=f'Daily Job Hunt - {spider.name}', 
+                contents=[field for job in self.jobs for field in (job.get('jobtitle'), job.get('url'))]
+            )
+        
 
 
 
