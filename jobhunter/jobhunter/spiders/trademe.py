@@ -12,14 +12,12 @@ class TrademeSpider(SitemapSpider):
     sitemap_follow = ['-Jobs-IT-']
     sitemap_rules = [('/jobs', 'parse_job')]
 
-    def __init__(self):
-        self.tz = pytz.timezone('NZ')
-
     def sitemap_filter(self, entries):
+        nz = pytz.timezone('NZ')
         for entry in entries:
             date_time = datetime.strptime(entry['lastmod'], '%Y-%m-%dT%H:%M:%SZ')
-            date_time = date_time.replace(tzinfo=self.tz)
-            if date_time > datetime.now(self.tz) - timedelta(days=1):
+            date_time = date_time.replace(tzinfo=nz)
+            if date_time > datetime.now(nz) - timedelta(days=1):
                 yield entry
 
     def parse_job(self, response):
