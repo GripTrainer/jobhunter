@@ -10,6 +10,12 @@ __pycache__/
 notebooks/
 data/
 
+# Serverless
+.serverless
+
+# Node Modules
+node_modules/
+
 # Distribution / packaging
 .Python
 build/
