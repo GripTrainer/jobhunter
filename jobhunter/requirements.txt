@@ -1,0 +1,5 @@
+python-dotenv
+scrapy
+yagmail
+pytz
+scrapydo
