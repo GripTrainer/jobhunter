@@ -14,18 +14,15 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.31 (KHTML, lik
 ROBOTSTXT_OBEY = True
 
 # Mail Settings
-EMAIL = os.getenv('EMAIL')
-EMAIL_PASS = os.getenv('EMAIL_PASSWORD')
+# EMAIL = os.getenv('EMAIL')
+# EMAIL_PASS = os.getenv('EMAIL_PASSWORD')
+
+# S3
+FEED_URI = 's3://jobhunter/%(name)s/%(time)s.json'
+AWS_ACCESS_KEY_ID = os.getenv('KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('ACCESS_KEY')
 
 # Pipelines 
-ITEM_PIPELINES = {
-    'jobhunter.pipelines.JobAlertPipeline': 300
-}
-
-# Enable and configure HTTP caching (disabled by default)
-# See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
-# HTTPCACHE_ENABLED = True
-# HTTPCACHE_EXPIRATION_SECS = 0
-# HTTPCACHE_DIR = 'httpcache'
-# HTTPCACHE_IGNORE_HTTP_CODES = []
-# HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+# ITEM_PIPELINES = {
+#     'jobhunter.pipelines.JobAlertPipeline': 300
+# }
