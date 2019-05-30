@@ -12,6 +12,7 @@ data/
 
 # Serverless
 .serverless
+package*.json
 
 # Node Modules
 node_modules/
