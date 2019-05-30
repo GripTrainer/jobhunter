@@ -1,0 +1,34 @@
+service: jobhunter
+
+provider:
+  name: aws
+  runtime: python3.7
+  stage: prod
+  region: ap-southeast-2
+  memorySize: 128
+  timeout: 300
+
+functions:
+  jobhunter:
+    name: jobhunter
+    handler: handler.jobhunt
+    events:
+      - schedule: cron(0 22 * * ? *)
+        enabled: true
+        input:
+          name: seek
+      - schedule: cron(0 22 * * ? *)
+        enabled: true
+        input:
+          name: indeed
+      - schedule: cron(0 22 * * ? *)
+        enabled: true
+        input:
+          name: trademe
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
