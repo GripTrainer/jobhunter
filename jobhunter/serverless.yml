@@ -13,18 +13,24 @@ functions:
     name: jobhunter
     handler: handler.jobhunt
     events:
-      - schedule: cron(0 22 * * ? *)
-        enabled: true
-        input:
-          name: seek
-      - schedule: cron(0 22 * * ? *)
-        enabled: true
-        input:
-          name: indeed
-      - schedule: cron(0 22 * * ? *)
-        enabled: true
-        input:
-          name: trademe
+      - schedule:
+          name: jobhunt-seek
+          rate: cron(0 22 * * ? *)
+          enabled: true
+          input:
+            name: seek
+      - schedule:
+          name: jobhunt-indeed
+          rate: cron(0 22 * * ? *)
+          enabled: true
+          input:
+            name: indeed
+      - schedule: 
+          name: jobhunt-trademe
+          rate: cron(0 22 * * ? *)
+          enabled: true
+          input:
+            name: trademe
 
 plugins:
   - serverless-python-requirements
