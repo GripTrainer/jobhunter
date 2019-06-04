@@ -15,19 +15,19 @@ functions:
     events:
       - schedule:
           name: jobhunt-seek
-          rate: cron(0 22 * * ? *)
+          rate: cron(0 10 * * ? *)
           enabled: true
           input:
             name: seek
       - schedule:
           name: jobhunt-indeed
-          rate: cron(0 22 * * ? *)
+          rate: cron(0 10 * * ? *)
           enabled: true
           input:
             name: indeed
       - schedule: 
           name: jobhunt-trademe
-          rate: cron(0 22 * * ? *)
+          rate: cron(0 10 * * ? *)
           enabled: true
           input:
             name: trademe
